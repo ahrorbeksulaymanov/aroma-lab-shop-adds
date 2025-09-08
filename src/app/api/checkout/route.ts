@@ -7,9 +7,9 @@ export async function POST(request: NextRequest) {
     const formData: CheckoutFormData = await request.json();
     
     // Validate required fields
-    if (!formData.phoneNumber || !formData.fullName || !formData.region || !formData.city) {
+    if (!formData.phoneNumber || !formData.fullName || !formData.region) {
       return NextResponse.json(
-        { error: 'Barcha maydonlar to\'ldirilishi shart' },
+        { error: 'Barcha majburiy maydonlar to\'ldirilishi shart' },
         { status: 400 }
       );
     }
@@ -26,6 +26,7 @@ export async function POST(request: NextRequest) {
 
     // Add +998 prefix for display
     const fullPhoneNumber = '+998' + formData.phoneNumber;
+    const additionalPhoneNumber = formData.additionalPhoneNumber ? '+998' + formData.additionalPhoneNumber : null;
 
     // Get product details
     const product = getProductById(formData.productId);
@@ -42,9 +43,8 @@ export async function POST(request: NextRequest) {
 
 👤 **Mijoz ma'lumotlari:**
 • Ism: ${formData.fullName}
-• Telefon: ${fullPhoneNumber}
+• Telefon: ${fullPhoneNumber}${additionalPhoneNumber ? `\n• Qo'shimcha telefon: ${additionalPhoneNumber}` : ''}
 • Viloyat: ${formData.region}
-• Shahar: ${formData.city}
 
 🛒 **Mahsulot ma'lumotlari:**
 • Mahsulot: ${product.name}

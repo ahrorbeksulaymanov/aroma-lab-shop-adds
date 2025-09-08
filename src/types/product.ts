@@ -19,10 +19,11 @@ export interface Product {
 
 export interface CheckoutFormData {
   phoneNumber: string;
+  additionalPhoneNumber?: string;
   fullName: string;
   username?: string;
   region: string;
-  city: string;
+  city?: string;
   paymentMethod: '6' | '12' | 'full';
   productId: string;
 }

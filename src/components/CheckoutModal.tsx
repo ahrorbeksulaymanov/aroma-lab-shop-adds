@@ -15,10 +15,10 @@ interface CheckoutModalProps {
 export function CheckoutModal({ isOpen, onClose, product, selectedPaymentMethod }: CheckoutModalProps) {
   const [formData, setFormData] = useState<CheckoutFormData>({
     phoneNumber: '',
+    additionalPhoneNumber: '',
     fullName: '',
     username: '',
     region: '',
-    city: '',
     paymentMethod: selectedPaymentMethod,
     productId: product.id
   });
@@ -44,28 +44,12 @@ export function CheckoutModal({ isOpen, onClose, product, selectedPaymentMethod 
     'Surxondaryo viloyati'
   ];
 
-  const cities = {
-    'Toshkent shahri': ['Toshkent shahri'],
-    'Toshkent viloyati': ['Angren', 'Bekobod', 'Chirchiq', 'Nurafshon', 'Olmaliq', 'Yangiyo\'l'],
-    'Andijon viloyati': ['Andijon', 'Asaka', 'Baliqchi', 'Bo\'z', 'Buloqboshi', 'Izboskan', 'Jalaquduq', 'Qo\'rg\'ontepa', 'Marhamat', 'Oltinko\'l', 'Pakhtaobod', 'Paxtaobod', 'Shahrixon', 'Ulug\'nor', 'Xonobod'],
-    'Buxoro viloyati': ['Buxoro', 'Vobkent', 'G\'ijduvon', 'Jondor', 'Kogon', 'Olot', 'Peshku', 'Qorako\'l', 'Qorovulbozor', 'Romitan', 'Shofirkon'],
-    'Farg\'ona viloyati': ['Farg\'ona', 'Beshariq', 'Bog\'dod', 'Buvayda', 'Dang\'ara', 'Furqat', 'Qo\'qon', 'Qo\'shtepa', 'Rishton', 'So\'x', 'Toshloq', 'Uchko\'prik', 'Yozyovon'],
-    'Jizzax viloyati': ['Jizzax', 'Arnasoy', 'Baxmal', 'Do\'stlik', 'Forish', 'G\'allaorol', 'Mirzacho\'l', 'Paxtakor', 'Yangiobod', 'Zomin', 'Zafarobod', 'Zarbdor'],
-    'Xorazm viloyati': ['Urganch', 'Bog\'ot', 'Gurlan', 'Qo\'shko\'pir', 'Shovot', 'Tuproqqal\'a', 'Xazorasp', 'Xiva', 'Yangiariq', 'Yangibozor'],
-    'Namangan viloyati': ['Namangan', 'Chortoq', 'Chust', 'Kosonsoy', 'Mingbuloq', 'Norin', 'Pop', 'To\'raqo\'rg\'on', 'Uchqo\'rg\'on', 'Uychi', 'Yangiqo\'rg\'on'],
-    'Navoiy viloyati': ['Navoiy', 'Karmana', 'Konimex', 'Nurota', 'Qiziltepa', 'Tomdi', 'Uchquduq', 'Xatirchi', 'Zarafshon'],
-    'Qashqadaryo viloyati': ['Qarshi', 'Chiroqchi', 'Dehqonobod', 'G\'uzor', 'Kasbi', 'Kitob', 'Koson', 'Mirishkor', 'Muborak', 'Nishon', 'Qamashi', 'Shahrisabz', 'Yakkabog\''],
-    'Qoraqalpog\'iston Respublikasi': ['Nukus', 'Amudaryo', 'Beruniy', 'Chimboy', 'Ellikqal\'a', 'Kegayli', 'Mo\'ynoq', 'Nukus', 'Qonliko\'l', 'Qorao\'zak', 'Shumanay', 'Taxtako\'pir', 'To\'rtko\'l', 'Xo\'jayli'],
-    'Samarqand viloyati': ['Samarqand', 'Bulung\'ur', 'Ishtixon', 'Jomboy', 'Kattaqo\'rg\'on', 'Narpay', 'Nurobod', 'Oqdaryo', 'Paxtachi', 'Payariq', 'Pastdarg\'om', 'Qo\'shrabot', 'Tayloq', 'Urgut'],
-    'Sirdaryo viloyati': ['Guliston', 'Boyovut', 'Guliston', 'Mirzaobod', 'Oqoltin', 'Sayxunobod', 'Sardoba', 'Sirdaryo', 'Xovos'],
-    'Surxondaryo viloyati': ['Termiz', 'Angor', 'Bandixon', 'Boysun', 'Denov', 'Jarqo\'rg\'on', 'Qiziriq', 'Qumqo\'rg\'on', 'Muzrabod', 'Oltinsoy', 'Sariosiyo', 'Sherobod', 'Sho\'rchi', 'Termiz', 'Uzun']
-  };
 
   const handleInputChange = (field: keyof CheckoutFormData, value: string) => {
     let processedValue = value;
     
-    // Telefon raqami uchun maxsus ishlov berish
-    if (field === 'phoneNumber') {
+    // Telefon raqamlari uchun maxsus ishlov berish
+    if (field === 'phoneNumber' || field === 'additionalPhoneNumber') {
       // Faqat raqamlarni qoldirish
       processedValue = value.replace(/[^\d]/g, '');
       
@@ -103,9 +87,7 @@ export function CheckoutModal({ isOpen, onClose, product, selectedPaymentMethod 
       newErrors.region = 'Viloyat tanlanishi shart';
     }
 
-    if (!formData.city) {
-      newErrors.city = 'Shahar/tuman tanlanishi shart';
-    }
+    // Shahar/tuman optional bo'ldi
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -137,10 +119,10 @@ export function CheckoutModal({ isOpen, onClose, product, selectedPaymentMethod 
         setShowSuccessModal(true);
         setFormData({
           phoneNumber: '',
+          additionalPhoneNumber: '',
           fullName: '',
           username: '',
           region: '',
-          city: '',
           paymentMethod: selectedPaymentMethod,
           productId: product.id
         });
@@ -203,6 +185,26 @@ export function CheckoutModal({ isOpen, onClose, product, selectedPaymentMethod 
             )}
           </div>
 
+          {/* Additional Phone Number */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Qo'shimcha telefon raqam
+            </label>
+            <div className="flex">
+              <div className="flex items-center px-3 border border-gray-300 border-r-0 rounded-l-lg bg-gray-50">
+                <span className="text-sm text-gray-500">🇺🇿 +998</span>
+              </div>
+              <input
+                type="tel"
+                value={formData.additionalPhoneNumber}
+                onChange={(e) => handleInputChange('additionalPhoneNumber', e.target.value)}
+                placeholder="901234567"
+                maxLength={9}
+                className="md:text-base text-[14px] flex-1 px-3 py-2 border rounded-r-lg text-gray-800 focus:ring-1 focus:ring-[#d5ac52] focus:border-[#d5ac52] focus:outline-none border-gray-300"
+              />
+            </div>
+          </div>
+
           {/* Full Name */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -249,30 +251,6 @@ export function CheckoutModal({ isOpen, onClose, product, selectedPaymentMethod 
             )}
           </div>
 
-          {/* City */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Shahar/tumanni tanlang <span className="text-red-500">*</span>
-            </label>
-            <select
-              value={formData.city}
-              onChange={(e) => handleInputChange('city', e.target.value)}
-              disabled={!formData.region}
-              className={`md:text-base text-[14px] w-full px-3 py-2 border rounded-lg text-gray-800 focus:ring-1 focus:ring-[#d5ac52] focus:border-[#d5ac52] focus:outline-none ${
-                errors.city ? 'border-red-500' : 'border-gray-300'
-              } ${!formData.region ? 'bg-gray-100 text-gray-500' : ''}`}
-            >
-              <option value="">Tanlang</option>
-              {formData.region && cities[formData.region as keyof typeof cities]?.map((city) => (
-                <option key={city} value={city}>
-                  {city}
-                </option>
-              ))}
-            </select>
-            {errors.city && (
-              <p className="text-red-500 text-sm mt-1">{errors.city}</p>
-            )}
-          </div>
 
           {/* Buttons */}
           <div className="flex space-x-3 pt-4">

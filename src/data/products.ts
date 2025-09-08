@@ -3,13 +3,16 @@ import { Product } from '@/types/product';
 export const products: Product[] = [
   {
     id: 'ganymede-marc-antoine-barrois-100ml',
-    name: 'Ganymede Marc-Antoine Barrois, 100 ml',
+    name: 'Ganymede Marc-Antoine Barrois, 100ml',
     brand: 'Louis Vuitton',
     price: 400000,
     originalPrice: 1600000,
     images: [
-      '/images/ganymede-marc-antoine-barrois-100ml-1.webp',
-      '/images/ganymede-marc-antoine-barrois-100ml-2.webp',
+      '/images/ganymede-marc-antoine-barrois-100ml-1.jpg',
+      '/images/ganymede-marc-antoine-barrois-100ml-2.jpg',
+      '/images/ganymede-marc-antoine-barrois-100ml-3.jpg',
+      '/images/ganymede-marc-antoine-barrois-100ml-4.jpg',
+      '/images/ganymede-marc-antoine-barrois-100ml-5.jpg',
     ],
     description: "Ganymede Marc-Antoine Barrois – zamonaviy va nafis uniseks atiri bo‘lib, tetiklik, mineral akkordlar va elegant chuqurlikni uyg‘unlashtiradi. Ustki notalar mandarin va shafran bilan ochilib, mineral va teri akkordlaridan iborat yurak notalariga yo‘l beradi. Yog‘och va beqaror gulidan tashkil topgan asosiy notalar atirga bardoshlilik, sirli joziba va betakror nafislik baxsh etadi.",
     features: [
@@ -17,7 +20,6 @@ export const products: Product[] = [
       'Oud asosida',
       'Erkaklar uchun',
       'Premium qadoqlash',
-      'Rasmiy kafolat'
     ],
     isNew: true,
     inStock: true,
@@ -30,7 +32,7 @@ export const products: Product[] = [
   },
   {
     id: 'scepter-bronzite-maison-alhambra-100ml',
-    name: 'Scepter Bronzite Maison Alhambra, 100 ml',
+    name: 'Scepter Bronzite Maison Alhambra, 100ml',
     brand: 'Chanel',
     price: 534000,
     originalPrice: 1400000,
@@ -44,7 +46,6 @@ export const products: Product[] = [
       'Ifor turi: sharqona, yog‘ochli',
       'Kim uchun: uniseks',
       'Premium qadoqlash',
-      'Rasmiy kafolat',
       "Vaziyat: kechki chiqishlar, maxsus holatlar",
     ],
     isNew: false,
@@ -58,7 +59,7 @@ export const products: Product[] = [
   },
   {
     id: 'imagination-louis-vuitton-100ml',
-    name: 'Imagination Louis Vuitton, 100 ml',
+    name: 'Imagination Louis Vuitton, 100ml',
     brand: 'Dior',
     price: 1200000,
     originalPrice: 1520000,
@@ -72,7 +73,6 @@ export const products: Product[] = [
       'Bergamot asosida',
       'Erkaklar uchun',
       'Premium qadoqlash',
-      'Rasmiy kafolat'
     ],
     isNew: true,
     inStock: true,
@@ -100,7 +100,6 @@ export const products: Product[] = [
       'Orchid asosida',
       'Erkaklar uchun',
       'Premium qadoqlash',
-      'Rasmiy kafolat'
     ],
     isNew: false,
     inStock: true,
