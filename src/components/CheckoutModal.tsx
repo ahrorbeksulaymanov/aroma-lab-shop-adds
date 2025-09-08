@@ -18,7 +18,7 @@ export function CheckoutModal({ isOpen, onClose, product, selectedPaymentMethod 
     additionalPhoneNumber: '',
     fullName: '',
     username: '',
-    region: '',
+    region: 'Toshkent shahri',
     paymentMethod: selectedPaymentMethod,
     productId: product.id
   });
@@ -122,7 +122,7 @@ export function CheckoutModal({ isOpen, onClose, product, selectedPaymentMethod 
           additionalPhoneNumber: '',
           fullName: '',
           username: '',
-          region: '',
+          region: 'Toshkent shahri',
           paymentMethod: selectedPaymentMethod,
           productId: product.id
         });
