@@ -16,6 +16,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "AromaLab Shop - Premium Atirlar",
   description: "Dunyoning eng mashhur brendlarining hashamatli atirlari. Louis Vuitton, Chanel, Dior va boshqa premium brendlar.",
+  icons: {
+    icon: '/images/logo.webp',
+    shortcut: '/images/logo.webp',
+    apple: '/images/logo.webp',
+  },
 };
 
 export default function RootLayout({

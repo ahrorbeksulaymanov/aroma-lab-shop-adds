@@ -8,11 +8,11 @@ export const products: Product[] = [
     price: 780000,
     originalPrice: 1248000,
     images: [
-      '/images/ganymede-marc-antoine-barrois-100ml-1.jpg',
-      '/images/ganymede-marc-antoine-barrois-100ml-2.jpg',
-      '/images/ganymede-marc-antoine-barrois-100ml-3.jpg',
-      '/images/ganymede-marc-antoine-barrois-100ml-4.jpg',
-      '/images/ganymede-marc-antoine-barrois-100ml-5.jpg',
+      '/images/Ганимед/бонус.jpg',
+      '/images/Ганимед/6381627468.jpg',
+      '/images/Ганимед/a3c0de1596034616a51ecb30a0243da8.jpg',
+      '/images/Ганимед/molecula.jpg',
+      '/images/Ганимед/57451.970.jpg',
     ],
     description: "Ganymede Marc-Antoine Barrois – zamonaviy va nafis uniseks atiri bo‘lib, tetiklik, mineral akkordlar va elegant chuqurlikni uyg‘unlashtiradi. Ustki notalar mandarin va shafran bilan ochilib, mineral va teri akkordlaridan iborat yurak notalariga yo‘l beradi. Yog‘och va beqaror gulidan tashkil topgan asosiy notalar atirga bardoshlilik, sirli joziba va betakror nafislik baxsh etadi.",
     features: [
