@@ -4,8 +4,8 @@ import { Product } from '@/types/product';
 
 interface ProductInfoProps {
   product: Product;
-  selectedPaymentMethod: '6' | '12' | 'full';
-  onPaymentMethodChange: (method: '6' | '12' | 'full') => void;
+  selectedPaymentMethod: '3' | '6' | '12' | 'full';
+  onPaymentMethodChange: (method: '3' | '6' | '12' | 'full') => void;
   onCheckout: () => void;
   onShare?: () => void;
 }
@@ -27,8 +27,22 @@ export function ProductInfo({
 
   const getLastPaymentDate = (months: number) => {
     const date = new Date();
-    date.setMonth(date.getMonth() + months);
-    return date.toLocaleDateString('uz-UZ');
+    // To'g'ri oy qo'shish uchun
+    const currentMonth = date.getMonth();
+    const currentYear = date.getFullYear();
+    const newMonth = currentMonth + months;
+    const newYear = currentYear + Math.floor(newMonth / 12);
+    const finalMonth = newMonth % 12;
+    
+    // Oxirgi oyning oxirgi kunini olish
+    const lastDayOfMonth = new Date(newYear, finalMonth + 1, 0).getDate();
+    const currentDay = date.getDate();
+    
+    // Agar joriy kun oxirgi kundan katta bo'lsa, oxirgi kunga o'rnatish
+    const finalDay = Math.min(currentDay, lastDayOfMonth);
+    
+    const finalDate = new Date(newYear, finalMonth, finalDay);
+    return finalDate.toLocaleDateString('uz-UZ');
   };
 
   return (
@@ -57,6 +71,16 @@ export function ProductInfo({
         {/* Installment Options */}
         <div className="bg-gray-100 rounded-lg px-4 py-2 mb-4">
           <div className="flex space-x-2">
+            <button
+              onClick={() => onPaymentMethodChange('3')}
+              className={`px-4 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${
+                selectedPaymentMethod === '3'
+                  ? 'bg-white border border-[#d5ac52] border-solid text-gray-900'
+                  : 'bg-transparent text-gray-600 hover:bg-gray-200 border border-transparent border-solid'
+              }`}
+            >
+              3 oy
+            </button>
             <button
               onClick={() => onPaymentMethodChange('6')}
               className={`px-4 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${

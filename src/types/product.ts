@@ -24,6 +24,6 @@ export interface CheckoutFormData {
   username?: string;
   region: string;
   city?: string;
-  paymentMethod: '6' | '12' | 'full';
+  paymentMethod: '3' | '6' | '12' | 'full';
   productId: string;
 }

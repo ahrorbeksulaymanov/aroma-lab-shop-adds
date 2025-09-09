@@ -89,8 +89,19 @@ export function ProductGallery({ images, productId, onShare }: ProductGalleryPro
         <Swiper
           onSwiper={setThumbsSwiper}
           modules={[FreeMode, Thumbs]}
-          spaceBetween={20}
+          spaceBetween={4}
           slidesPerView={4}
+          breakpoints={{
+            640: {
+              slidesPerView: 4,
+            },
+            768: {
+              slidesPerView: 5,
+            },
+            1024: {
+              slidesPerView: 6,
+            },
+          }}
           freeMode={true}
           watchSlidesProgress={true}
           loop={true}

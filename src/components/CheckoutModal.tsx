@@ -9,7 +9,7 @@ interface CheckoutModalProps {
   isOpen: boolean;
   onClose: () => void;
   product: Product;
-  selectedPaymentMethod: '6' | '12' | 'full';
+  selectedPaymentMethod: '3' | '6' | '12' | 'full';
 }
 
 export function CheckoutModal({ isOpen, onClose, product, selectedPaymentMethod }: CheckoutModalProps) {

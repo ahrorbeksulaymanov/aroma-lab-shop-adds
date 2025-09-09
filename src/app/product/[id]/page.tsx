@@ -17,7 +17,7 @@ export default function ProductDetailPage() {
   const productId = params.id as string;
   const product = getProductById(productId);
   const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'6' | '12' | 'full'>('12');
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'3' | '6' | '12' | 'full'>('3');
 
   if (!product) {
     return (
