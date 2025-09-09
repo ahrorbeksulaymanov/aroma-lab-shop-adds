@@ -91,7 +91,7 @@ export const products: Product[] = [
   },
   {
     id: 'jean-paul-gaultier-le-male-elixir-125ml',
-    name: 'Jean Paul Gaultier Le Male Elixir',
+    name: 'Jean Paul Gaultier Le Male Elixir, 125ml',
     brand: 'Tom Ford',
     price: 800000,
     originalPrice: 1280000,
