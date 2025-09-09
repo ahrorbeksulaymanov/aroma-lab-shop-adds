@@ -70,10 +70,10 @@ export function ProductInfo({
 
         {/* Installment Options */}
         <div className="bg-gray-100 rounded-lg px-4 py-2 mb-4">
-          <div className="flex space-x-2">
+          <div className="flex sm:space-x-2">
             <button
               onClick={() => onPaymentMethodChange('3')}
-              className={`px-4 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${
+              className={`sm:px-4 px-2 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${
                 selectedPaymentMethod === '3'
                   ? 'bg-white border border-[#d5ac52] border-solid text-gray-900'
                   : 'bg-transparent text-gray-600 hover:bg-gray-200 border border-transparent border-solid'
@@ -83,7 +83,7 @@ export function ProductInfo({
             </button>
             <button
               onClick={() => onPaymentMethodChange('6')}
-              className={`px-4 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${
+              className={`sm:px-4 px-2 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${
                 selectedPaymentMethod === '6'
                   ? 'bg-white border border-[#d5ac52] border-solid text-gray-900'
                   : 'bg-transparent text-gray-600 hover:bg-gray-200 border border-transparent border-solid'
@@ -93,7 +93,7 @@ export function ProductInfo({
             </button>
             <button
               onClick={() => onPaymentMethodChange('12')}
-              className={`px-4 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${
+              className={`sm:px-4 px-2 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${
                 selectedPaymentMethod === '12'
                   ? 'bg-white border border-[#d5ac52] text-gray-900'
                   : 'bg-transparent text-gray-600 hover:bg-gray-200 border border-transparent border-solid'
@@ -103,7 +103,7 @@ export function ProductInfo({
             </button>
             <button
               onClick={() => onPaymentMethodChange('full')}
-              className={`px-4 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${
+              className={`sm:px-4 px-2 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${
                 selectedPaymentMethod === 'full'
                   ? 'bg-white border border-[#d5ac52] text-gray-900'
                   : 'bg-transparent text-gray-600 hover:bg-gray-200 border border-transparent border-solid'
