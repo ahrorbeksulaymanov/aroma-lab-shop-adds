@@ -79,7 +79,7 @@ export default function ProductDetailPage() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24 md:pb-8">
         {/* Product Title and Status */}
-        <h1 className="lg:text-3xl md:text-2xl text-xl font-bold text-gray-900 mb-4">{product.name}</h1>
+        <h1 className="lg:text-3xl md:text-2xl text-xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'Tagesschrift, system-ui' }}>{product.name}</h1>
 
         {/* Product Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">

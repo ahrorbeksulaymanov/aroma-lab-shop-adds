@@ -50,10 +50,10 @@ export function RelatedProducts({ currentProductId }: RelatedProductsProps) {
           className="related-products-swiper"
         >
           {relatedProducts.map((product) => (
-            <SwiperSlide key={product.id} className="!w-64">
+            <SwiperSlide key={product.id} className="!w-64 h-full">
               <Link
                 href={`/product/${product.id}`}
-                className="group bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow block"
+                className="h-full group bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow block flex flex-col"
               >
                 <div className="relative aspect-square overflow-hidden rounded-t-lg">
                   <Image
@@ -86,24 +86,28 @@ export function RelatedProducts({ currentProductId }: RelatedProductsProps) {
                   )}
                 </div>
                 
-                <div className="p-3">
-                  <h3 className="font-semibold text-gray-900 mb-1 line-clamp-2 group-hover:text-[#d5ac52] transition-colors text-sm">
-                    {product.name}
-                  </h3>
-                  <p className="text-xs text-gray-600 mb-2">{product.brand}</p>
-                  
-                  <div className="mb-2">
-                    <p className="text-sm font-bold text-gray-900">{formatPrice(product.price)}</p>
-                    {product.originalPrice && (
-                      <p className="text-xs text-red-500 line-through">
-                        {formatPrice(product.originalPrice)}
-                      </p>
-                    )}
+                <div className="p-3 flex flex-col flex-grow">
+                  <div className="flex-grow">
+                    <h3 className="font-semibold text-gray-900 mb-1 line-clamp-2 group-hover:text-[#d5ac52] transition-colors text-sm h-10 flex items-center">
+                      {product.name}
+                    </h3>
+                    <p className="text-xs text-gray-600 mb-2">{product.brand}</p>
                   </div>
                   
-                  <button className="w-full bg-[#d5ac52] hover:bg-[#c19a47] text-white font-semibold py-1.5 px-3 rounded-lg transition-all duration-200 cursor-pointer hover:scale-105 shadow-md hover:shadow-lg text-xs">
-                    Xarid qilish
-                  </button>
+                  <div className="mt-auto">
+                    <div className="mb-2">
+                      <p className="text-sm font-bold text-gray-900">{formatPrice(product.price)}</p>
+                      {product.originalPrice && (
+                        <p className="text-xs text-red-500 line-through">
+                          {formatPrice(product.originalPrice)}
+                        </p>
+                      )}
+                    </div>
+                    
+                    <button className="w-full bg-[#d5ac52] hover:bg-[#c19a47] text-white font-semibold py-1.5 px-3 rounded-lg transition-all duration-200 cursor-pointer hover:scale-105 shadow-md hover:shadow-lg text-xs">
+                      Xarid qilish
+                    </button>
+                  </div>
                 </div>
               </Link>
             </SwiperSlide>

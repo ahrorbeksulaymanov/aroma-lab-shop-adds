@@ -10,14 +10,14 @@ interface ProductInfoProps {
   onShare?: () => void;
 }
 
-export function ProductInfo({ 
-  product, 
-  selectedPaymentMethod, 
-  onPaymentMethodChange, 
+export function ProductInfo({
+  product,
+  selectedPaymentMethod,
+  onPaymentMethodChange,
   onCheckout,
-  onShare 
+  onShare
 }: ProductInfoProps) {
-  const selectedOption = product.installmentOptions.find(option => 
+  const selectedOption = product.installmentOptions.find(option =>
     option.months.toString() === selectedPaymentMethod
   );
 
@@ -33,14 +33,14 @@ export function ProductInfo({
     const newMonth = currentMonth + months;
     const newYear = currentYear + Math.floor(newMonth / 12);
     const finalMonth = newMonth % 12;
-    
+
     // Oxirgi oyning oxirgi kunini olish
     const lastDayOfMonth = new Date(newYear, finalMonth + 1, 0).getDate();
     const currentDay = date.getDate();
-    
+
     // Agar joriy kun oxirgi kundan katta bo'lsa, oxirgi kunga o'rnatish
     const finalDay = Math.min(currentDay, lastDayOfMonth);
-    
+
     const finalDate = new Date(newYear, finalMonth, finalDay);
     return finalDate.toLocaleDateString('uz-UZ');
   };
@@ -73,47 +73,43 @@ export function ProductInfo({
           <div className="flex sm:space-x-2">
             <button
               onClick={() => onPaymentMethodChange('3')}
-              className={`sm:px-4 px-2 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${
-                selectedPaymentMethod === '3'
+              className={`sm:px-4 px-2 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${selectedPaymentMethod === '3'
                   ? 'bg-white border border-[#d5ac52] border-solid text-gray-900'
                   : 'bg-transparent text-gray-600 hover:bg-gray-200 border border-transparent border-solid'
-              }`}
+                }`}
             >
               3 oy
             </button>
             <button
               onClick={() => onPaymentMethodChange('6')}
-              className={`sm:px-4 px-2 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${
-                selectedPaymentMethod === '6'
+              className={`sm:px-4 px-2 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${selectedPaymentMethod === '6'
                   ? 'bg-white border border-[#d5ac52] border-solid text-gray-900'
                   : 'bg-transparent text-gray-600 hover:bg-gray-200 border border-transparent border-solid'
-              }`}
+                }`}
             >
               6 oy
             </button>
             <button
               onClick={() => onPaymentMethodChange('12')}
-              className={`sm:px-4 px-2 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${
-                selectedPaymentMethod === '12'
+              className={`sm:px-4 px-2 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${selectedPaymentMethod === '12'
                   ? 'bg-white border border-[#d5ac52] text-gray-900'
                   : 'bg-transparent text-gray-600 hover:bg-gray-200 border border-transparent border-solid'
-              }`}
+                }`}
             >
               12 oy
             </button>
             <button
               onClick={() => onPaymentMethodChange('full')}
-              className={`sm:px-4 px-2 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${
-                selectedPaymentMethod === 'full'
+              className={`sm:px-4 px-2 py-2 text-sm rounded-lg transition-all duration-200 cursor-pointer focus:outline-none border-[#d5ac52] ${selectedPaymentMethod === 'full'
                   ? 'bg-white border border-[#d5ac52] text-gray-900'
                   : 'bg-transparent text-gray-600 hover:bg-gray-200 border border-transparent border-solid'
-              }`}
+                }`}
             >
               To'liq to'lov
             </button>
           </div>
-          
-          
+
+
         </div>
 
         {/* Selected Payment Plan Details */}
@@ -135,10 +131,10 @@ export function ProductInfo({
                 </svg>
               </div>
             </div>
-            
+
             {/* Separator Line */}
             <div className="border-t border-gray-200"></div>
-            
+
             {/* Details Section */}
             <div className="bg-white px-4 py-3">
               <div className="space-y-2">
@@ -168,8 +164,8 @@ export function ProductInfo({
           >
             {
               selectedPaymentMethod !== 'full'
-              ? 'Muddatli to\'lovga xarid qilish'
-              : 'To\'liq to\'lovga xarid qilish'
+                ? 'Muddatli to\'lovga xarid qilish'
+                : 'To\'liq to\'lovga xarid qilish'
             }
           </button>
           {onShare && (
@@ -194,8 +190,8 @@ export function ProductInfo({
           >
             {
               selectedPaymentMethod !== 'full'
-              ? 'Muddatli to\'lovga xarid qilish'
-              : 'To\'liq to\'lovga xarid qilish'
+                ? 'Muddatli to\'lovga xarid qilish'
+                : 'To\'liq to\'lovga xarid qilish'
             }
           </button>
         </div>
@@ -204,8 +200,8 @@ export function ProductInfo({
       {/* Product Status & Guarantees */}
       <div className="bg-white rounded-lg md:p-6 p-4 shadow-sm border space-y-4">
         <div className="flex items-center space-x-3">
-          <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-            <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+          <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+            <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
             </svg>
           </div>
@@ -213,10 +209,8 @@ export function ProductInfo({
         </div>
 
         <div className="flex items-center space-x-3">
-          <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
-            <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-            </svg>
+          <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+            <svg className='text-blue-600' xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M15 18H9" /><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></svg>
           </div>
           <span className="text-gray-700 md:text-base text-sm">{product.delivery}</span>
         </div>

@@ -32,7 +32,7 @@ export function ProductGallery({ images, productId, onShare }: ProductGalleryPro
   return (
     <div className="space-y-4">
       {/* Main Image Swiper */}
-      <div className="relative aspect-square bg-white rounded-lg overflow-hidden shadow-lg">
+      <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
         <Swiper
           modules={[Navigation, Pagination, Thumbs]}
           spaceBetween={10}
@@ -41,16 +41,18 @@ export function ProductGallery({ images, productId, onShare }: ProductGalleryPro
           thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
           loop={true}
           loopAdditionalSlides={2}
-          className="h-full w-full"
+          className="w-full"
+          style={{ height: 'auto', minHeight: '400px' }}
         >
           {images.map((image, index) => (
-            <SwiperSlide key={index}>
-              <div className="relative w-full h-full">
+            <SwiperSlide key={index} className="flex items-center justify-center h-full">
+              <div className="relative w-full">
                 <Image
-                  src={image || '/images/louis-vuitton-myriad-1.webp'}
+                  src={image}
                   alt={`Product view ${index + 1}`}
-                  fill
-                  className="object-cover"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover"
                   priority={index === 0}
                 />
               </div>
@@ -59,7 +61,7 @@ export function ProductGallery({ images, productId, onShare }: ProductGalleryPro
         </Swiper>
 
         {/* Action buttons */}
-        <div className="absolute top-4 right-4 z-10 flex space-x-2">
+        <div className="absolute top-4 left-4 z-10 flex space-x-2">
           <button 
             onClick={toggleLike}
             className="p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white hover:scale-110 transition-all duration-200 cursor-pointer"
