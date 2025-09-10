@@ -52,7 +52,7 @@ export function ProductInfo({
         {/* Product Price */}
         <div className="mb-4">
           <p className="md:text-sm text-[12px] text-gray-600 mb-1">Mahsulot narxi:</p>
-          <p className="md:text-2xl text-xl font-bold text-gray-900 mb-1">{formatPrice(product.price)}</p>
+          <p className="md:text-2xl text-xl font-bold text-gray-900 mb-1">{formatPrice(product?.price ?? 0)}</p>
           {product.originalPrice && (
             <p className="md:text-lg text-sm text-red-500 line-through">
               {formatPrice(product.originalPrice)}

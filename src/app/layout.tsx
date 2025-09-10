@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   title: "AromaLab Shop - Premium Atirlar",
   description: "Dunyoning eng mashhur brendlarining hashamatli atirlari. Louis Vuitton, Chanel, Dior va boshqa premium brendlar.",
   icons: {
-    icon: '/images/aroma_logo.png',
-    shortcut: '/images/aroma_logo.png',
-    apple: '/images/aroma_logo.png',
+    icon: '/images/aroma_lo.webp',
+    shortcut: '/images/aroma_lo.webp',
+    apple: '/images/aroma_lo.webp',
   },
 };
 
